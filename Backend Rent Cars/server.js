@@ -10,17 +10,10 @@ const carRoutes = require('./routes/cars')
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// Use CORS middleware
-// app.use(cors({
-//   origin: 'http://localhost:3000',  // Specify the frontend's origin
-//   methods: ['GET', 'POST'],  // Allow specific HTTP methods
-//   credentials: true,  // Allow cookies to be sent in requests
-// }));
 
-app.use(cors())
-
-// Middleware
+app.use(cors());
 app.use(express.json()); // To parse JSON request body
+
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGO_URI)
