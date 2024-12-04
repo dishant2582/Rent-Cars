@@ -1,18 +1,15 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
 import AlertGreen from '../components/AlertGreen';
 import AlertRed from '../components/AlertRed';
 import { useGlobalContext } from '../context/GlobalContext';
-import { useRouter } from 'next/navigation'
-
+import { useRouter } from 'next/navigation';
 
 const LoginForm: React.FC = () => {
-
   const { logOutBtn, setlogOutBtn } = useGlobalContext();
-
   const router = useRouter();
 
   const [email, setEmail] = useState('');
@@ -24,7 +21,7 @@ const LoginForm: React.FC = () => {
   const [alertRedMsg, setAlertRedMsg] = useState('');
   const [alertGreenMsg, setAlertGreenMsg] = useState('');
 
-  const url = "https://rent-cars-pr3w.onrender.com/api";
+  const url = process.env.NEXT_PUBLIC_URI_API;
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -42,8 +39,8 @@ const LoginForm: React.FC = () => {
     if (response.ok) {
       setAlertGreenMsg(data.message);
       setAlertGreenState(true);
-      localStorage.setItem('email', data.email)
-      setlogOutBtn(true)
+      localStorage.setItem('email', data.email);
+      setlogOutBtn(true);
     } else {
       setAlertRedMsg(data.message);
       setAlertRedState(true);
@@ -52,7 +49,6 @@ const LoginForm: React.FC = () => {
 
   const handleCloseAlertRed = () => {
     setAlertRedState(false);
-
   };
 
   const handleCloseAlertGreen = () => {
@@ -149,6 +145,6 @@ const LoginForm: React.FC = () => {
       </div>
     </>
   );
-}
+};
 
 export default LoginForm;

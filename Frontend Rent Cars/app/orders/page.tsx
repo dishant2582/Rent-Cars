@@ -23,7 +23,7 @@ const Garage: React.FC = () => {
   const [alertRedState, setAlertRedState] = useState(false);
   const [alertRedMsg, setAlertRedMsg] = useState('');
 
-  const url = "https://rent-cars-pr3w.onrender.com/api/"
+  const url = process.env.NEXT_PUBLIC_URI_API;
 
   useEffect(() => {
     const fetchCars = async () => {
@@ -35,7 +35,7 @@ const Garage: React.FC = () => {
       }
 
       try {
-        const response = await fetch(`${url}car/fetch/email/${email}`);
+        const response = await fetch(`${url}/car/fetch/email/${email}`);
         const data = await response.json();
 
         if (response.ok) {

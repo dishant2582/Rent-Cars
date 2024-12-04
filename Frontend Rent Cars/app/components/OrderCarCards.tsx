@@ -29,7 +29,7 @@ const OrderCarCards: React.FC<CarProps> = ({ car }) => {
   const [alertGreenMsg, setAlertGreenMsg] = useState('');
 
 
-  const url = "https://rent-cars-pr3w.onrender.com/api";
+  const url = process.env.NEXT_PUBLIC_URI_API;
 
   const handleCancelBooking = async (carId: number) => {
     const email = localStorage.getItem('email'); // Ensure the user is logged in
