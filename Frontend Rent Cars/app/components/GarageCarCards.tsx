@@ -28,7 +28,7 @@ const GarageCarCard: React.FC<CarProps> = ({ car }) => {
   const [alertGreenMsg, setAlertGreenMsg] = useState('');
 
 
-  const url = "http://localhost:5000/api";
+  const url = "https://rent-cars-pr3w.onrender.com/api";
 
   const handleBookNow = async () => {
     const email = localStorage.getItem('email');

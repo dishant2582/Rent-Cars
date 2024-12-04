@@ -24,7 +24,7 @@ const SignupForm: React.FC = () => {
   const [alertRedMsg, setAlertRedMsg] = useState('');
   const [alertGreenMsg, setAlertGreenMsg] = useState('');
 
-  const url = "http://localhost:5000/api";
+  const url = "https://rent-cars-pr3w.onrender.com/api";
 
   const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault();

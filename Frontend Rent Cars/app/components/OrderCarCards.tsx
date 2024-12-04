@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import AlertRed from './AlertRed';
 import AlertGreen from './AlertGreen';
+import { useRouter } from 'next/navigation'
 
 interface CarProps {
   car: {
@@ -22,11 +23,13 @@ const OrderCarCards: React.FC<CarProps> = ({ car }) => {
     const [alertRedState, setAlertRedState] = useState(false);
   const [alertGreenState, setAlertGreenState] = useState(false);
 
+  const router = useRouter();
+
   const [alertRedMsg, setAlertRedMsg] = useState('');
   const [alertGreenMsg, setAlertGreenMsg] = useState('');
 
 
-  const url = "http://localhost:5000/api";
+  const url = "https://rent-cars-pr3w.onrender.com/api";
 
   const handleCancelBooking = async (carId: number) => {
     const email = localStorage.getItem('email'); // Ensure the user is logged in
@@ -66,7 +69,7 @@ const OrderCarCards: React.FC<CarProps> = ({ car }) => {
 
   const handleCloseAlertGreen = () => {
     setAlertGreenState(false);
-    window.location.reload();
+    router.push('/garage');
   };
 
 

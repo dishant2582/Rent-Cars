@@ -23,7 +23,7 @@ const Garage: React.FC = () => {
   const [alertRedState, setAlertRedState] = useState(false);
   const [alertRedMsg, setAlertRedMsg] = useState('');
 
-  const url = "http://localhost:5000/api/"
+  const url = "https://rent-cars-pr3w.onrender.com/api/"
 
   useEffect(() => {
     const fetchCars = async () => {
